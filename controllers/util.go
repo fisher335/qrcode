@@ -15,7 +15,7 @@ func Qrcode(content string) string {
 	var path = "static"+"/"+"qrcode"+"/"+name+".png"
 	err:= qrcode.WriteFile(content,qrcode.Medium,300,path)
 	if err!=nil{
-		fmt.Println("write file  err")
+		fmt.Println("write file  error")
 	}
 	return name
 }
