@@ -53,10 +53,8 @@ func (c *MainController) Download() {
 }
 
 func (c *MainController) File() {
-	//var bm, _ = globalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
 	file, _ := ListDir("static/videos")
 	c.Data["file"] = file
-	//fmt.Println(bm.Get("token"))
 	c.TplName = "file.tpl"
 }
 
@@ -73,4 +71,9 @@ func (c *MainController) UploadSave() {
 	f.Close()
 	c.SaveToFile("file", path.Join("static/videos", fileName))
 	c.Redirect("/file/", 302)
+}
+
+func (c *MainController) RedirectGithub(){
+	c.Redirect("https://github.com/fisher335/wiki/issues",302)
+	c.StopRun()
 }
