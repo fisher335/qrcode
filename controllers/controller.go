@@ -3,6 +3,9 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"fmt"
+	"path"
+	"github.com/astaxie/beego/logs"
+	"os"
 )
 
 type MainController struct {
@@ -40,9 +43,34 @@ func (c *MainController) Qrcode() {
 }
 
 func (c *MainController) Download() {
+	var dir = c.Ctx.Input.Param(":dir")
 	var name = c.Ctx.Input.Param(":name")
-
-	var path = "static" + "/" + "qrcode" + "/" + name
+	var sep =string(os.PathSeparator)
+	logs.Info(name)
+	var path = "static" + sep+dir+sep + name
 	c.Ctx.Output.Download(path, name)
 	return
+}
+
+func (c *MainController) File() {
+	//var bm, _ = globalSessions.SessionStart(c.Ctx.ResponseWriter, c.Ctx.Request)
+	file, _ := ListDir("static/videos")
+	c.Data["file"] = file
+	//fmt.Println(bm.Get("token"))
+	c.TplName = "file.tpl"
+}
+
+func (c *MainController) Upload() {
+
+	c.TplName = "upload.tpl"
+}
+
+func (c *MainController) UploadSave() {
+
+	f, h, _ := c.GetFile("file")
+	fileName := h.Filename
+	fmt.Println(fileName)
+	f.Close()
+	c.SaveToFile("file", path.Join("static/videos", fileName))
+	c.Redirect("/file/", 302)
 }

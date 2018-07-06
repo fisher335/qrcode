@@ -14,7 +14,7 @@
 					生成二维码如图，请右键保存，我就不加按钮了。
 				</p>
 				<p>
-					<a class="btn btn-primary btn-large" href="/download/{{.path}}.png">下载图片</a>
+					<a class="btn btn-primary btn-large" href="/download/qrcode/{{.path}}.png">下载图片</a>
 				</p>
 			</div>
 		</div>

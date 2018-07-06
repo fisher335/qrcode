@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "beegolearn01/routers"
+	_ "qrcode/routers"
 	"github.com/astaxie/beego"
 )
 

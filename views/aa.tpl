@@ -28,13 +28,14 @@
                 <a class="nav-link" href="/qrcode/">二维码</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/test"><span class="">测试</span></a>
+                <a class="nav-link" href="/test/"><span class="">测试</span></a>
             </li>
-
-            {{/*<li class="nav-item">*/}}
-                {{/*<a class="nav-link" href="#">Link</a>*/}}
-
-            {{/*</li>*/}}
+            <li class="nav-item">
+                <a class="nav-link" href="/upload/">上传</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/file/">文件列表</a>
+            </li>
         </ul>
     </div>
 </nav>
