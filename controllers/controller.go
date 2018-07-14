@@ -77,3 +77,10 @@ func (c *MainController) RedirectGithub(){
 	c.Redirect("https://github.com/fisher335/wiki/issues",302)
 	c.StopRun()
 }
+
+func (c *MainController) Zhuang(){
+	c.Data["name"] = "冯文韬"
+	c.Data["tel"] = "15110202919"
+	c.Data["addr"] = "北京市海淀区厢黄旗东路柳浪家园南里26号楼1单元701"
+	c.TplName="zhuang.tpl"
+}
