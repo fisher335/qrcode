@@ -1,11 +1,10 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
 	"fmt"
-	"path"
-	"github.com/astaxie/beego/logs"
+	beego "github.com/beego/beego/v2/server/web"
 	"os"
+	"path"
 )
 
 type MainController struct {
@@ -14,7 +13,7 @@ type MainController struct {
 
 func (c *MainController) Index() {
 
-	c.TplName="index.tpl"
+	c.TplName = "index.tpl"
 }
 
 func (c *MainController) Header() {
@@ -35,7 +34,7 @@ func (c *MainController) Header() {
 }
 
 func (c *MainController) Qrcode() {
-	var content = c.GetString("url","")
+	var content = c.GetString("url", "")
 	var path = Qrcode(content)
 	c.Data["path"] = path
 	c.TplName = "qrcode.tpl"
@@ -45,9 +44,8 @@ func (c *MainController) Qrcode() {
 func (c *MainController) Download() {
 	var dir = c.Ctx.Input.Param(":dir")
 	var name = c.Ctx.Input.Param(":name")
-	var sep =string(os.PathSeparator)
-	logs.Info(name)
-	var path = "static" + sep+dir+sep + name
+	var sep = string(os.PathSeparator)
+	var path = "static" + sep + dir + sep + name
 	c.Ctx.Output.Download(path, name)
 	return
 }
@@ -73,14 +71,21 @@ func (c *MainController) UploadSave() {
 	c.Redirect("/file/", 302)
 }
 
-func (c *MainController) RedirectGithub(){
-	c.Redirect("https://github.com/fisher335/wiki/issues",302)
-	c.StopRun()
+func (c *MainController) Wiki() {
+	c.TplName = "wiki.tpl"
+
+}
+func (c *MainController) AiPic() {
+	var content = c.GetString("url", "")
+	var path, _ = CreatePic(content)
+	c.Data["path"] = path[0]
+	c.TplName = "aipic.tpl"
+
 }
 
-func (c *MainController) Zhuang(){
+func (c *MainController) Zhuang() {
 	c.Data["name"] = "冯文韬"
 	c.Data["tel"] = "15110202919"
 	c.Data["addr"] = "北京市海淀区厢黄旗东路柳浪家园南里26号楼1单元701"
-	c.TplName="zhuang.tpl"
+	c.TplName = "zhuang.tpl"
 }
