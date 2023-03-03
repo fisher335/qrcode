@@ -2,8 +2,8 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-				<div class="text-center">
-					<img  src=" {{.path}} " class="center-block" height="200" width="200" />
+				<div class="text-center" style="margin:20px">
+					<img  src=" {{.path}} " class="center-block" height="300" width="300" />
 				</div>
             <div class="divider"></div>
 			<div class="jumbotron text-center">
