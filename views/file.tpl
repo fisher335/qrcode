@@ -1,6 +1,6 @@
 {{template "aa.tpl"}}
 
-<table style = " margin-top:50px; margin-left:50px;margin-right:50px;"  class="table table-bordered "  sortable = "true" >
+<table style = " margin-top:5px; margin-left:50px;margin-right:50px;"  class="table table-bordered "    >
 	<caption>视频文件</caption>
 
    <thead>
