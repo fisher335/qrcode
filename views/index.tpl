@@ -8,7 +8,7 @@
                     <label for="exampleInputEmail1">
                         二维码地址
                     </label>
-                    <input class="form-control" id="Email" name="url"/>
+                    <input class="form-control" id="exampleInputEmail1" name="url"/>
 
                     <p class="help-block">
                         输入你想生成二维码的地址
